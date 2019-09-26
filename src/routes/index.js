@@ -8,11 +8,16 @@ module.exports = function (app) {
         const livroDAO = new LivroDAO(db)
         livroDAO.getList()
             .then( (r) => {
-                console.log(r)
+                resp.send(r)
             })
             .catch( (err) =>{
                 console.log(err)
             })
+    })
+
+    app.post("/cadastrar", (req, resp) =>{
+        const newLivro = req.body
+        
     })
 }
 
