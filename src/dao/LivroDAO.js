@@ -53,4 +53,9 @@ this._db.run(`INSERT INTO livros (
     novoLivro.titulo,
     novoLivro.preco,
     novoLivro.descricao
-], () =>{})
+], (err) =>{
+    if(!err){
+        return resolve()
+    }
+    return reject("não foi possivel adicionar")
+})
